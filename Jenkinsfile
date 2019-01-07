@@ -5,19 +5,20 @@ pipeline {
 
 		stage('Build') {
 			steps {
-				echo 'Building...' 
+				echo 'Building...${env.BUILD_ID}' 
 			}
 		}
 
 		stage('Test') {
 			steps {
-				echo 'Testing...' 
+				echo 'Testing...${env.BUILD_ID}'
+				sh ''
 			}
 		}
 
 		stage('Deploy') {
 			steps {
-				echo 'Deploying...' 
+				echo 'Deploying...${env.BUILD_ID}' 
 			}
 		}
 
