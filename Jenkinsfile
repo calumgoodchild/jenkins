@@ -12,7 +12,6 @@ pipeline {
 		stage('Test') {
 			steps {
 				echo 'Testing...${env.BUILD_ID}'
-				sh ''
 			}
 		}
 
