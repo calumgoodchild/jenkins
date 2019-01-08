@@ -34,9 +34,6 @@ pipeline {
 	}
 
 	post {
-		when {
-
-		}
         failure {
             echo 'Sending email...'
             
