@@ -12,7 +12,6 @@ pipeline {
 				sh '''
 					printenv
 					ls -la /var/
-					echo HELLO
 				'''
 			}
 		}
