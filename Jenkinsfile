@@ -12,6 +12,7 @@ pipeline {
 				sh '''
 					printenv
 					ls -la /var/
+					echo $date
 				'''
 			}
 		}
