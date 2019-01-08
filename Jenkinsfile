@@ -1,9 +1,9 @@
 pipeline {
 	agent any
 
-	options {
+	'''options {
 		checkoutToSubdirectory("/var/www/")
-	}
+	}'''
 
 	stages {
 
