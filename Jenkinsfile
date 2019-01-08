@@ -1,5 +1,10 @@
 pipeline {
-	agent any
+	agent {
+
+		label {
+
+	}
+
 
 	/*options {
 		checkoutToSubdirectory("/var/www/")
@@ -10,6 +15,7 @@ pipeline {
 		stage('Pre-Build') {
 			steps {
 				sh '''
+					echo "THIS IS FROM THE JENKINS MASTER"
 					printenv
 					ls -la /var/
 					echo $(date)
@@ -20,6 +26,19 @@ pipeline {
 		stage("Build") {
 			steps {
 				echo "Building...${env.BUILD_ID}" 
+			}
+		}
+
+		stage("Build on Ubuntu") {
+			agent {
+				label 'ubuntu'
+			}
+			steps {
+				sh '''
+					echo "THIS IS FROM THE JENKINS SLAVE"
+					printenv
+
+				'''
 			}
 		}
 
