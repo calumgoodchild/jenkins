@@ -1,9 +1,5 @@
 pipeline {
-	agent {
-
-		label {
-
-	}
+	agent none
 
 
 	/*options {
@@ -13,9 +9,9 @@ pipeline {
 	stages {
 
 		stage('Pre-Build') {
+			agent any
 			steps {
 				sh '''
-					echo "THIS IS FROM THE JENKINS MASTER"
 					printenv
 					ls -la /var/
 					echo $(date)
@@ -24,6 +20,7 @@ pipeline {
 		}
 
 		stage("Build") {
+			agent any
 			steps {
 				echo "Building...${env.BUILD_ID}" 
 			}
@@ -37,18 +34,19 @@ pipeline {
 				sh '''
 					echo "THIS IS FROM THE JENKINS SLAVE"
 					printenv
-
 				'''
 			}
 		}
 
 		stage("Test") {
+			agent any
 			steps {
 				echo "Testing...${env.BUILD_ID}"
 			}
 		}
 
 		stage("Deploy") {
+			agent any
 			steps {
 				echo "Deploying...${env.BUILD_ID}" 
 			}
