@@ -11,8 +11,7 @@ pipeline {
 			steps {
 				sh '''
 					printenv
-
-					ssh root@192.168.99.100 -p 32770
+					mkdir /var/www/html
 				'''
 			}
 		}
