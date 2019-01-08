@@ -35,7 +35,6 @@ pipeline {
 		                recipientProviders: [
 							"calum.goodchild@curtisfitchglobal.com"
 							],
-		                					],
 		                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
             
         }
