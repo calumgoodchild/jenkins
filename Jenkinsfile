@@ -7,6 +7,12 @@ pipeline {
 
 	stages {
 
+		stage('Pre-Build') {
+			steps {
+				echo "${env}"
+			}
+		}
+
 		stage("Build") {
 			steps {
 				echo "Building...${env.BUILD_ID}" 
@@ -28,7 +34,10 @@ pipeline {
 	}
 
 	post {
-        always {
+		when {
+
+		}
+        failure {
             echo 'Sending email...'
             
             emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
