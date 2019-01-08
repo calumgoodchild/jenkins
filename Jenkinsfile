@@ -9,7 +9,11 @@ pipeline {
 
 		stage('Pre-Build') {
 			steps {
-				echo "${env}"
+				sh '''
+					printenv
+
+					ssh root@192.168.99.100 -p 32770
+				'''
 			}
 		}
 
