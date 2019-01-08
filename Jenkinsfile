@@ -11,7 +11,7 @@ pipeline {
 			steps {
 				sh '''
 					printenv
-					mkdir /var/www/html
+					ls -la /var/
 				'''
 			}
 		}
