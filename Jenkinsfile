@@ -30,6 +30,7 @@ pipeline {
 			agent {
 				docker {
 					image 'ubuntu:latest'
+					args '-v $HOME/.m2:/root/.m2'
 				}
 			}
 			steps {
