@@ -30,7 +30,7 @@ pipeline {
 			agent {
 				docker {
 					image 'ubuntu:latest'
-					args '-u root:sudo'
+					args '-u root:sudo -v /var/run/docker.sock:/var/run/docker.sock'
 				}
 			}
 			steps {
