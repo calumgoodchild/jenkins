@@ -28,11 +28,13 @@ pipeline {
 
 		stage("Build on Ubuntu") {
 			agent {
-				label 'ubuntu'
+				docker {
+					image 'ubuntu:latest'
+				}
 			}
 			steps {
 				sh '''
-					echo "THIS IS FROM THE JENKINS SLAVE"
+					echo "THIS IS FROM A UBUNTU DOCKER CONTAINER"
 					printenv
 				'''
 			}
