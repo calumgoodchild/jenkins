@@ -27,12 +27,13 @@ pipeline {
 		}
 
 		stage("Build on Ubuntu") {
-			agent {
+			/*agent {
 				docker {
 					image 'ubuntu:latest'
 					args '-v /var/run/docker.sock:/var/run/docker.sock'
 				}
-			}
+			}*/
+			agent any
 			steps {
 				sh '''
 					echo "THIS IS FROM A UBUNTU DOCKER CONTAINER"
@@ -52,6 +53,7 @@ pipeline {
 			agent any
 			steps {
 				echo "Deploying...${env.BUILD_ID}" 
+				sh 'echo "BUILD ON PUSH FROM GIT"'
 			}
 		}
 
