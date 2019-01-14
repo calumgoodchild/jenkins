@@ -15,6 +15,7 @@ pipeline {
 					printenv
 					ls -la /var/
 					echo $(date)
+
 				'''
 			}
 		}
@@ -23,6 +24,7 @@ pipeline {
 			agent any
 			steps {
 				echo "Building...${env.BUILD_ID}" 
+				sh 'npm version'
 			}
 		}
 
